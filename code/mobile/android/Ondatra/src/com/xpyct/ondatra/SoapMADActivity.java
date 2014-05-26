@@ -91,7 +91,7 @@ public class SoapMADActivity extends Activity {
 	}
 	
 	final String NAMESPACE = "urn:examples";
-    final String URL = "http://itex.no-ip.biz:12345/csoapserver";
+    final String URL = "http://no-ip.org:12345/csoapserver";
 
 	/** Called when the activity is first created. */
     @Override
