@@ -24,27 +24,27 @@ public class HtmlActivity  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.htmlcleaner);
 
-        //Находим кнопку
+        //РќР°С…РѕРґРёРј РєРЅРѕРїРєСѓ
         Button button = (Button)findViewById(R.id.parse);
-        //Регистрируем onClick слушателя
+        //Р РµРіРёСЃС‚СЂРёСЂСѓРµРј onClick СЃР»СѓС€Р°С‚РµР»СЏ
         button.setOnClickListener(myListener);
 	}
 
-	  //Диалог ожидания
+	  //Р”РёР°Р»РѕРі РѕР¶РёРґР°РЅРёСЏ
 	   private ProgressDialog pd;
-	   //Слушатель OnClickListener для нашей кнопки
+	   //РЎР»СѓС€Р°С‚РµР»СЊ OnClickListener РґР»СЏ РЅР°С€РµР№ РєРЅРѕРїРєРё
 	   private OnClickListener myListener = new OnClickListener() {
 	     public void onClick(View v) {
-	       //Показываем диалог ожидания
+	       //РџРѕРєР°Р·С‹РІР°РµРј РґРёР°Р»РѕРі РѕР¶РёРґР°РЅРёСЏ
 	       pd = ProgressDialog.show(/*StackParser.this*/ HtmlActivity.this, 
 	    		   "Working...", "request to server", true, false);
-	       //Запускаем парсинг
+	       //Р—Р°РїСѓСЃРєР°РµРј РїР°СЂСЃРёРЅРі
 	       new ParseSite().execute("http://www.stackoverflow.com");
 	     }
 	   };
 	   
 	   private class ParseSite extends AsyncTask<String, Void, List<String>> {
-	     //Фоновая операция
+	     //Р¤РѕРЅРѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ
 	     protected List<String> doInBackground(String... arg) {
 	       List<String> output = new ArrayList<String>();
 	       try
@@ -65,13 +65,13 @@ public class HtmlActivity  extends Activity {
 	       return output;
 	     }
 
-	     //Событие по окончанию парсинга
+	     //РЎРѕР±С‹С‚РёРµ РїРѕ РѕРєРѕРЅС‡Р°РЅРёСЋ РїР°СЂСЃРёРЅРіР°
 	     protected void onPostExecute(List<String> output) {
-	       //Убираем диалог загрузки
+	       //РЈР±РёСЂР°РµРј РґРёР°Р»РѕРі Р·Р°РіСЂСѓР·РєРё
 	       pd.dismiss();
-	       //Находим ListView
+	       //РќР°С…РѕРґРёРј ListView
 	       ListView listview = (ListView) findViewById(R.id.listViewData);
-	       //Загружаем в него результат работы doInBackground
+	       //Р—Р°РіСЂСѓР¶Р°РµРј РІ РЅРµРіРѕ СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ doInBackground
 	       listview.setAdapter(new ArrayAdapter<String>(/*StackParser.this*/ HtmlActivity.this,
 	           android.R.layout.simple_list_item_1 , output));
 	     }

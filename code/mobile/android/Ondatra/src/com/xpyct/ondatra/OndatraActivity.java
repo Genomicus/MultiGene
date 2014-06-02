@@ -37,7 +37,7 @@ public class OndatraActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	//TODO: Поиграться с вхождениями =)
+    	//TODO: РџРѕРёРіСЂР°С‚СЊСЃСЏ СЃ РІС…РѕР¶РґРµРЅРёСЏРјРё =)
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
@@ -86,7 +86,7 @@ public class OndatraActivity extends Activity {
 		        //notifyMgr.notify(NOTIFY_ID, noti);
 			}
 
-			// Как проверить связь с Интернетом в Android?
+			// РљР°Рє РїСЂРѕРІРµСЂРёС‚СЊ СЃРІСЏР·СЊ СЃ РРЅС‚РµСЂРЅРµС‚РѕРј РІ Android?
 			// http://androidengineer.ru/2011/01/kak-proverit-svyaz-s-internetom-v-android/
 			public boolean isOnline() {
 			    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -104,12 +104,12 @@ public class OndatraActivity extends Activity {
         
         final Button btTemper = (Button) findViewById(R.id.bTemper);
         btTemper.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) // клик на кнопку
+            public void onClick(View v) // РєР»РёРє РЅР° РєРЅРѕРїРєСѓ
             {
                 RefreshTemper();
             }
         });
-        RefreshTemper(); // при запуске грузим температуру сразу
+        RefreshTemper(); // РїСЂРё Р·Р°РїСѓСЃРєРµ РіСЂСѓР·РёРј С‚РµРјРїРµСЂР°С‚СѓСЂСѓ СЃСЂР°Р·Сѓ
         
         final Button btMusic = (Button) findViewById(R.id.bMusic);
         btMusic.setOnClickListener(new Button.OnClickListener() {
@@ -129,12 +129,12 @@ public class OndatraActivity extends Activity {
         });
     }
 
-    public String GetTemper(String urlsite) // фукция загрузки температуры
+    public String GetTemper(String urlsite) // С„СѓРєС†РёСЏ Р·Р°РіСЂСѓР·РєРё С‚РµРјРїРµСЂР°С‚СѓСЂС‹
     {
         String matchtemper = "";
         try
         {
-            // загрузка страницы
+            // Р·Р°РіСЂСѓР·РєР° СЃС‚СЂР°РЅРёС†С‹
             URL url = new URL(urlsite);
             URLConnection conn = url.openConnection();
             InputStreamReader rd = new InputStreamReader(conn.getInputStream());
@@ -149,9 +149,9 @@ public class OndatraActivity extends Activity {
                     allpage.append(buffer, 0, n);                    
                 }
             }
-            // работаем с регулярками
+            // СЂР°Р±РѕС‚Р°РµРј СЃ СЂРµРіСѓР»СЏСЂРєР°РјРё
             //final Pattern pattern = Pattern.compile
-            //        ("<span style=\"color:#[a-zA-Z0-9]+\">[^-+0]+([-+0-9]+)[^<]+</span>[^(а-яА-ЯёЁa-zA-Z0-9)]+([а-яА-ЯёЁa-zA-Z ]+)");
+            //        ("<span style=\"color:#[a-zA-Z0-9]+\">[^-+0]+([-+0-9]+)[^<]+</span>[^(Р°-СЏРђ-РЇС‘РЃa-zA-Z0-9)]+([Р°-СЏРђ-РЇС‘РЃa-zA-Z ]+)");
             final Pattern pattern = Pattern.compile
                     ("<dd class='value m_temp c'>([-+0-9]+)<span");
             Matcher matcher = pattern.matcher(allpage.toString());
@@ -175,11 +175,11 @@ public class OndatraActivity extends Activity {
 		if(this.isOnline()) {
 	        //bashtemp = GetTemper("http://be.bashkirenergo.ru/weather/ufa/");
             bashtemp = GetTemper("http://www.gismeteo.ru/city/daily/4429/");
-	        tTemper.setText(bashtemp.concat("°")); // отображение температуры
+	        tTemper.setText(bashtemp.concat("В°")); // РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ С‚РµРјРїРµСЂР°С‚СѓСЂС‹
 		} else {
 		    tTemper.setText(bashtemp);
 			Context ctx = getApplicationContext();
-			Toast toast = Toast.makeText(ctx, "весь интернет закончился", Toast.LENGTH_SHORT);
+			Toast toast = Toast.makeText(ctx, "РІРµСЃСЊ РёРЅС‚РµСЂРЅРµС‚ Р·Р°РєРѕРЅС‡РёР»СЃСЏ", Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER, 0, 0);
 			toast.show();
 		}

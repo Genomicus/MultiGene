@@ -1,4 +1,4 @@
-// «Правильный» html парсинг
+// В«РџСЂР°РІРёР»СЊРЅС‹Р№В» html РїР°СЂСЃРёРЅРі
 // http://habrahabr.ru/blogs/android_development/115127/
 
 package com.xpyct.ondatra;
@@ -14,12 +14,12 @@ import org.htmlcleaner.TagNode;
 public class HtmlHelper {
 	   TagNode rootNode;
 
-	   //Конструктор
+	   //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	   public HtmlHelper(URL htmlPage) throws IOException
 	   {
-	     //Создаём объект HtmlCleaner
+	     //РЎРѕР·РґР°С‘Рј РѕР±СЉРµРєС‚ HtmlCleaner
 	     HtmlCleaner cleaner = new HtmlCleaner();
-	     //Загружаем html код сайта
+	     //Р—Р°РіСЂСѓР¶Р°РµРј html РєРѕРґ СЃР°Р№С‚Р°
 	     rootNode = cleaner.clean(htmlPage);
 	   }
 
@@ -27,13 +27,13 @@ public class HtmlHelper {
 	   {
 	     List<TagNode> linkList = new ArrayList<TagNode>();
 
-	     //Выбираем все ссылки
+	     //Р’С‹Р±РёСЂР°РµРј РІСЃРµ СЃСЃС‹Р»РєРё
 	     TagNode linkElements[] = rootNode.getElementsByName("a", true);
 	     for (int i = 0; linkElements != null && i < linkElements.length; i++)
 	     {
-	       //получаем атрибут по имени
+	       //РїРѕР»СѓС‡Р°РµРј Р°С‚СЂРёР±СѓС‚ РїРѕ РёРјРµРЅРё
 	       String classType = linkElements[i].getAttributeByName("class");
-	       //если атрибут есть и он эквивалентен искомому, то добавляем в список
+	       //РµСЃР»Рё Р°С‚СЂРёР±СѓС‚ РµСЃС‚СЊ Рё РѕРЅ СЌРєРІРёРІР°Р»РµРЅС‚РµРЅ РёСЃРєРѕРјРѕРјСѓ, С‚Рѕ РґРѕР±Р°РІР»СЏРµРј РІ СЃРїРёСЃРѕРє
 	       if (classType != null && classType.equals(CSSClassname))
 	       {
 	         linkList.add(linkElements[i]);

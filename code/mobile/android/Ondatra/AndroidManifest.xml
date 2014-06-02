@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.xpyct.ondatra"
       android:versionCode="1"
-      android:versionName="1.0"
+      android:versionName="1.0.0.1"
       android:installLocation="auto">
     <uses-sdk android:minSdkVersion="8"
               android:maxSdkVersion="19"
@@ -48,6 +48,27 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
+
+        <activity
+                android:name="com.xpyct.tests.TestActivity"
+                android:icon="@drawable/icon"
+                android:configChanges="orientation|screenSize"
+                android:exported="true"
+                android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.google.android.voicesearch.SELF_NOTE" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+
     </application>
  
 </manifest>
