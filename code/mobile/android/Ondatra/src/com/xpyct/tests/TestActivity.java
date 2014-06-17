@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.xpyct.ondatra.DbLite;
 import com.xpyct.ondatra.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 // http://developer.android.com/training/sharing/receive.html
@@ -57,12 +59,21 @@ public class TestActivity extends Activity
                 public void onClick(View v)
                 {
                     TextView tvL = (TextView) findViewById(R.id.tvLarge);
-                    //tvL.getText();
+                    String   tvS = tvL.getText().toString();
+                    Context  ctx = getApplicationContext();
 
-                    Context ctx = getApplicationContext();
-                    Toast toast = Toast.makeText(ctx, tvL.getText(), Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
+                    try {
+                        DbLite dbs = new DbLite(ctx);
+                        dbs.create();
+                        dbs.insert(tvS);
+                        String info = tvS + "\nsaved in: " + dbs._dbPath;
+
+                        Toast toast = Toast.makeText(ctx, info, Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }
