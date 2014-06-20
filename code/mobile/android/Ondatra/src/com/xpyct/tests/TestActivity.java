@@ -54,19 +54,35 @@ public class TestActivity extends Activity
             TextView tvL = (TextView) findViewById(R.id.tvLarge);
             tvL.setText(sharedText);
 
-            final Button btMusic = (Button) findViewById(R.id.btPost);
-            btMusic.setOnClickListener(new Button.OnClickListener() {
-                public void onClick(View v)
-                {
+            final Button btnPost = (Button) findViewById(R.id.btPost);
+            btnPost.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
                     TextView tvL = (TextView) findViewById(R.id.tvLarge);
-                    String   tvS = tvL.getText().toString();
-                    Context  ctx = getApplicationContext();
+                    String tvS = tvL.getText().toString();
+                    Context ctx = getApplicationContext();
 
                     try {
                         DbLite dbs = new DbLite(ctx);
                         dbs.create();
                         dbs.insert(tvS);
                         String info = tvS + "\nsaved in: " + dbs._dbPath;
+
+                        Toast toast = Toast.makeText(ctx, info, Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            final Button btnSync = (Button) findViewById(R.id.btSync);
+            btnSync.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
+                    Context ctx = getApplicationContext();
+                    try {
+                        DbLite dbs = new DbLite(ctx);
+                        String info = "Test sync.";
 
                         Toast toast = Toast.makeText(ctx, info, Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
