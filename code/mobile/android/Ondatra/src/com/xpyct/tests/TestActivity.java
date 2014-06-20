@@ -82,6 +82,10 @@ public class TestActivity extends Activity
                     Context ctx = getApplicationContext();
                     try {
                         DbLite dbs = new DbLite(ctx);
+
+                        //HWClient.main(["test"]);
+                        //new HWClient().getInfo("test");
+                        new RetrieveInfoTask().execute("test");
                         String info = "Test sync.";
 
                         Toast toast = Toast.makeText(ctx, info, Toast.LENGTH_SHORT);
