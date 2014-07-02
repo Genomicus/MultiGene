@@ -59,6 +59,8 @@ public class TestActivity extends Activity
                 public void onClick(View v) {
                     TextView tvL = (TextView) findViewById(R.id.tvLarge);
                     String tvS = tvL.getText().toString();
+                    tvS = tvS.replace("\"", "\"\"");
+                    tvS = tvS.replace("\'", "\'\'");
                     Context ctx = getApplicationContext();
 
                     try {
