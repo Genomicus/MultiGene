@@ -31,7 +31,7 @@ import org.zeromq.ZMQ;
 
 public class HWClient {
 
-    public String getInfo(String sendText) {
+    public String getInfo(String txt, String sendText) {
         ZMQ.Context context = ZMQ.context(1);
 
         //  Socket to talk to server
@@ -39,16 +39,22 @@ public class HWClient {
 
         ZMQ.Socket socket = context.socket(ZMQ.REQ);
         //socket.connect ("tcp://localhost:5555");
-        socket.connect ("tcp://192.168.1.1:5555");
+        //socket.connect ("tcp://192.168.1.1:5555");
+        socket.connect ("tcp://" + txt + ":3333");
 
-        for(int requestNbr = 0; requestNbr != 10; requestNbr++) {
-            String request = "Hello" ;
-            System.out.println("Sending Hello " + requestNbr );
-            socket.send(request.getBytes (ZMQ.CHARSET), 0);
+        System.out.println("Sending: " + sendText);
+        socket.send(sendText.getBytes (ZMQ.CHARSET), 0);
+        byte[] reply = socket.recv(0);
+        System.out.println("Received: " + new String (reply, ZMQ.CHARSET));
 
-            byte[] reply = socket.recv(0);
-            System.out.println("Received " + new String (reply, ZMQ.CHARSET) + " " + requestNbr);
-        }
+        //for(int requestNbr = 0; requestNbr != 10; requestNbr++) {
+        //    String request = "Hello" ;
+        //    System.out.println("Sending Hello " + requestNbr );
+        //    socket.send(request.getBytes (ZMQ.CHARSET), 0);
+        //
+        //    byte[] reply = socket.recv(0);
+        //    System.out.println("Received " + new String (reply, ZMQ.CHARSET) + " " + requestNbr);
+        //}
 
         socket.close();
         context.term();
@@ -57,6 +63,6 @@ public class HWClient {
     }
 
     public static String main (String[] args){
-        return new HWClient().getInfo(args[0]);
+        return new HWClient().getInfo(args[0], args[1]);
     }
 }

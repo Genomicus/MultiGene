@@ -3,6 +3,7 @@ package com.xpyct.ondatra;
 import java.io.IOException;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
@@ -43,6 +44,12 @@ public class DbLite {
                        + " created date    default CURRENT_DATE, "
                        + " text    varchar, "
                        + " field   INT(3));");
+        //this._db.execSQL("create table IF NOT EXISTS config (id      integer primary key autoincrement, "
+        //               + " created date    default CURRENT_DATE, "
+        //               + " text    varchar, "
+        //               + " field   INT(3));");
+        //this._db.execSQL("INSERT INTO config (created, text) VALUES (datetime(), \"localhost\");");
+        //System.out.println("record created");
 	}
 
     public void insert(String text) {
@@ -64,11 +71,19 @@ public class DbLite {
         aa = null;
         //return null;
     }
-	
-	public void open() {
-		;
-	}
-	
+
+    public String getText() {
+        Cursor c = this._db.rawQuery("SELECT * FROM config WHERE id=1", null);
+        c.moveToFirst(); //c.moveToNext();
+        String txt = c.getString( c.getColumnIndex("text"));
+        System.out.println("localhost is: " + txt );
+        return txt;
+    }
+
+    public void open() {
+        ;
+    }
+
 	public void execute() {
 		;
 	}

@@ -81,13 +81,18 @@ public class TestActivity extends Activity
             final Button btnSync = (Button) findViewById(R.id.btSync);
             btnSync.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
+                    TextView tvL = (TextView) findViewById(R.id.tvLarge);
+                    String tvS = tvL.getText().toString();
+                    tvS = tvS.replace("\"", "\"\"");
+                    tvS = tvS.replace("\'", "\'\'");
+
                     Context ctx = getApplicationContext();
                     try {
                         DbLite dbs = new DbLite(ctx);
 
                         //HWClient.main(["test"]);
                         //new HWClient().getInfo("test");
-                        new RetrieveInfoTask().execute("test");
+                        new RetrieveInfoTask().execute(dbs.getText(), tvS);
                         String info = "Test sync.";
 
                         Toast toast = Toast.makeText(ctx, info, Toast.LENGTH_SHORT);
