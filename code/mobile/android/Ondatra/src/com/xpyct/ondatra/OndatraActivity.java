@@ -175,7 +175,11 @@ public class OndatraActivity extends Activity {
 		if(this.isOnline()) {
 	        //bashtemp = GetTemper("http://be.bashkirenergo.ru/weather/ufa/");
             bashtemp = GetTemper("http://www.gismeteo.ru/city/daily/4429/");
-	        tTemper.setText(bashtemp.concat("°")); // отображение температуры
+            if(bashtemp!=null) {
+                tTemper.setText(bashtemp.concat("°")); // отображение температуры
+            } else {
+                tTemper.setText("temperature not found");
+            }
 		} else {
 		    tTemper.setText(bashtemp);
 			Context ctx = getApplicationContext();
