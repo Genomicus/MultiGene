@@ -21,6 +21,11 @@
             android:id="@+id/button"
             android:text="Button" />
 
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/halter"
+            android:text="Halt?" />
+
 <!--Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/parse" android:text="Button"></Button-->
 <!--ListView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/listViewData"></ListView-->
 </LinearLayout>

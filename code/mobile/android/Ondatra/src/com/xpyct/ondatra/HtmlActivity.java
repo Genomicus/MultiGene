@@ -1,10 +1,16 @@
 package com.xpyct.ondatra;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import android.content.Context;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.util.Log;
 import android.widget.*;
 import org.htmlcleaner.TagNode;
 
@@ -64,11 +70,98 @@ public class HtmlActivity  extends Activity {
 			}
 		});
 
+        Button halter = (Button) findViewById(R.id.halter);
+        halter.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HtmlActivity.this, "System halting...", Toast.LENGTH_SHORT).show();
+                //Sleep
+                //IPowerManager powerManager = IPowerManager.Stub.asInterface(
+                //        ServiceManager.getService(Context.POWER_SERVICE));
+                //try {
+                //    powerManager.shutdown(false, false);
+                //} catch (RemoteException e) {
+                //}
+                HtmlActivity.LoadIPowerClass();
+            }
+        });
+
         //Находим кнопку
         //Button button = (Button)findViewById(R.id.parse);
         //Регистрируем onClick слушателя
         //button.setOnClickListener(myListener);
 	}
+
+    // http://stackoverflow.com/questions/6927444/why-do-not-work-in-android-setbacklightbrightnessint
+    public static void LoadIPowerClass(/*Context context*/) {
+        try {
+            //Load classes and objects
+
+            Object power = null;
+            //Context fContext = context;
+            Class<?> ServiceManager = null;
+            try {
+                ServiceManager = Class.forName("android.os.ServiceManager");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            Class<?> Stub = null;
+            try {
+                Stub = Class.forName("android.os.IPowerManager$Stub");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+
+            Method getService = null;
+            try {
+                getService = ServiceManager.getMethod("getService", new Class[]{String.class});
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+            //Method asInterface = GetStub.getMethod("asInterface", new Class[] {IBinder.class});//of this class?
+            Method asInterface = null;    //of this class?
+            try {
+                asInterface = Stub.getMethod("asInterface", new Class[]{IBinder.class});
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+            IBinder iBinder = null;//
+            try {
+                iBinder = (IBinder) getService.invoke(null, new Object[]{Context.POWER_SERVICE});
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            try {
+                power = asInterface.invoke(null, iBinder); //or call constructor Stub?//
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            Method setBacklightBrightness = null;
+            try {
+                //setBacklightBrightness = power.getClass().getMethod("setBacklightBrightness", new Class[]{int.class});
+                setBacklightBrightness = power.getClass().getMethod("shutdown", new Class[]{boolean.class, boolean.class});
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+
+            //int Brightness = 5;
+            boolean p1 = false;
+            boolean p2 = false;
+
+            try {
+                //setBacklightBrightness.invoke(power, new Object[]{Brightness}); //HERE Failen
+                setBacklightBrightness.invoke(power, new Object[]{p1, p2}); //HERE Failen
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            //Log.i(TAG, "Load internal IPower classes Ok");
+        } catch (InvocationTargetException e) {                     //HERE catch!!!!
+            ;
+        }
+    }
 
 	  //Диалог ожидания
 	   private ProgressDialog pd;
