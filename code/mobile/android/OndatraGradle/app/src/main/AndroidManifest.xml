@@ -4,7 +4,7 @@
       android:versionCode="1"
       android:versionName="1.0.0.1"
       android:installLocation="auto">
-    <uses-sdk android:minSdkVersion="11"
+    <uses-sdk android:minSdkVersion="10"
               android:maxSdkVersion="19"
               android:targetSdkVersion="10" />
     <supports-screens 
@@ -59,10 +59,11 @@
             </intent-filter>
         </receiver>
 
+            <!--android:configChanges="orientation|screenSize"-->
         <activity
                 android:name="com.xpyct.tests.TestActivity"
                 android:icon="@drawable/icon"
-                android:configChanges="orientation|screenSize"
+                android:configChanges="orientation"
                 android:exported="true"
                 android:launchMode="singleTop" >
             <intent-filter>

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Ondatra.iml" filepath="$PROJECT_DIR$/Ondatra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OndatraGradle.iml" filepath="$PROJECT_DIR$/OndatraGradle.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeromq/jeromq.iml" filepath="$PROJECT_DIR$/jeromq/jeromq.iml" />
     </modules>

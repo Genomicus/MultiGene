@@ -5,12 +5,12 @@
     android:orientation="horizontal"
     android:gravity="center" >
 
-    <Button
+    <NumberPicker
             android:id="@+id/np"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:paddingRight="5sp" />
-    <Button
+    <NumberPicker
             android:id="@+id/np2"
             android:layout_width="60sp"
             android:layout_height="wrap_content"

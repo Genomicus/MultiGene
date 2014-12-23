@@ -2,8 +2,8 @@
 <resources>
 	<!-- Control texts -->
     <string name="btnPush">Push me!</string>
-    <string name="txtTemper">t in Togliatti:</string>
-    <string name="btnTemper">Update temperature...</string>
+    <string name="txtTemper">Температура в г.о.Тольятти:</string>
+    <string name="btnTemper">Обновить температуру...</string>
     <string name="txtNull"></string>
     <string name="txtLine">----------------------------</string>
     <string name="btnMusic">Ta-Da!</string>
@@ -30,7 +30,7 @@
 	<string name="friendlistTab">Friends</string>
 	<string name="messagesTab">Messages</string>
 	<string name="openProfileButton">View profile</string>
-	<string name="working">Working..</string>
+	<string name="working">Работаем..</string>
 	<string name="retrieving_message">Getting message</string>
 	<string name="retrieving_image">Loading image</string>
 	<string name="logging_in">Sending Login</string>

@@ -5,9 +5,9 @@ android {
 
     defaultConfig {
         applicationId "com.xpyct.ondatra"
-        minSdkVersion 11
-        //targetSdkVersion 10
-        targetSdkVersion 21
+        minSdkVersion 10
+        targetSdkVersion 10
+        //targetSdkVersion 21
 
         ndk {
             moduleName "test"
@@ -39,9 +39,15 @@ android {
             //versionCode = 3
             versionCode = 0
         }
-        arm {
+        armv7 {
             ndk {
                 abiFilter "armeabi-v7a"
+            }
+            versionCode = 1
+        }
+        arm {
+            ndk {
+                abiFilter "armeabi"
             }
             versionCode = 2
         }
@@ -49,13 +55,13 @@ android {
             ndk {
                 abiFilter "mips"
             }
-            versionCode = 1
+            versionCode = 3
         }
         fat {
             // fat binary, lowest version code to be
             // the last option
             //versionCode = 0
-            versionCode = 3
+            versionCode = 4
         }
     }
 
@@ -79,5 +85,11 @@ dependencies {
     // You must install or update the Support Repository through the SDK manager to use this dependency.
     //compile 'com.android.support:support-v4:19.+'
     //compile 'com.android.support:support-v4:20.+'
+
+    // Adding libraries without resources
     //compile 'com.android.support:support-v4:21.+'
+    // Adding libraries with resources
+    //compile "com.android.support:appcompat-v7:18.0.+"
+    //compile 'com.android.support:appcompat-v7:21.+'
+    //compile 'com.android.support:appcompat-v7:19.0.0'
 }
