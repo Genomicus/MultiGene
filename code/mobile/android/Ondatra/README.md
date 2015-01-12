@@ -1,4 +1,0 @@
-MultiGene
-=========
-
-Multifunctional Genome Informer
