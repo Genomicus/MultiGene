@@ -1,0 +1,11 @@
+https://github.com/biogo/biogo
+GitHub - biogo/biogo: biogo is a bioinformatics library for Go
+
+https://github.com/brentp/irelate
+GitHub - brentp/irelate: Streaming relation (overlap, distance, KNN) of (any number of) sorted genomic interval sets. #golang
+
+Analysis of Illumina sequencing data using bíogo
+http://talks.godoc.org/github.com/biogo/talks/illumination/illumina.article
+
+Using and extending types in bíogo
+http://talks.godoc.org/github.com/biogo/talks/types/types.article
