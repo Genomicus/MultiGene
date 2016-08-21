@@ -1,0 +1,3 @@
+https://developer.android.com/guide/components/intents-filters.html
+https://developer.android.com/training/sharing/send.html
+http://developer.android.com/training/sharing/receive.html

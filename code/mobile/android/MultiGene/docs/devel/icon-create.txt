@@ -1,0 +1,10 @@
+https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
+http://www.gieson.com/Library/projects/utilities/icon_slayer/
+http://icon.angrymarmot.org/
+http://tools.android.com/recent/assetstudiointegration
+https://developer.android.com/studio/write/image-asset-studio.html
+
+res/drawable-ldpi  - 36x36
+res/drawable-mdpi  - 48x48
+res/drawable-hdpi  - 72x72
+res/drawable-xhdpi - 96x96

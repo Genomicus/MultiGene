@@ -1,0 +1,12 @@
+http://www.highveld.com/molecular-biology/multigene-families.html
+http://www.ncbi.nlm.nih.gov/mesh?term=Multigene+Family
+http://multigeneblast.sourceforge.net/
+http://klinexa.com/blog-post/multi-gene-test-identifies-early-breast-cancer-may-spared-chemo/
+
+https://genome.ucsc.edu/
+https://genome.ucsc.edu/cgi-bin/hgTracks
+http://www.ensembl.org/index.html
+https://cloud.google.com/genomics/
+http://www.ncbi.nlm.nih.gov/pubmed/20185404
+http://www.genomicus.biologie.ens.fr/genomicus-84.01/cgi-bin/search.pl
+http://www.genomicus.biologie.ens.fr/
