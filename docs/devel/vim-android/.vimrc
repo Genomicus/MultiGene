@@ -2,15 +2,21 @@ set nocompatible              " be iMproved, required
 syntax on
 filetype off                  " required
 
-let g:gradle_path           = '/opt/gradle/2.10'
-let g:android_sdk_path      = '/opt/android-sdk'
-let g:JavaComplete_LibsPath = "/opt/android/platforms/android-22/android.jar"
+let g:gradle_path               = '/opt/gradle/2.10'
+let g:android_sdk_path          = '/opt/android-sdk'
+let g:JavaComplete_LibsPath     = "/opt/android/platforms/android-22/android.jar"
+"let g:JavaComplete_SourcesPath = ""
+"let g:JavaComplete_UsePython3  = 0
 " https://github.com/artur-shaik/vim-javacomplete2/issues/177
 "let $CLASSPATH="/opt/android/platforms/android-23/android.jar:..."
 " :echo g:JavaComplete_LibsPath
 " :JCdebugEnableLogs
 " :JCdebugGetLogContent
 " :JCcacheClear
+
+" Added by android-vim:
+set tags+=/root/.vim/tags
+let g:SuperTabDefaultCompletionType = 'context'
 
 " javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -30,6 +36,8 @@ imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 "inoremap <C-Space> <C-x><C-o>
 "inoremap <C-@> <C-Space>
 inoremap <C-@> <c-x><c-o>
+" cscope
+nmap <C-@><C-@> :cs find s <C-R>=expand("<cword>")<CR><CR>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim

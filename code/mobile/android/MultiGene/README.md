@@ -33,9 +33,31 @@ CLASSPATH=/opt/android-sdk/platforms/android-2.2/android.jar:$CLASSPATH \
 ANDROID_SDK=/opt/android-sdk \
         vim MyProject.java
 
+use:
 sudo apt-get install exuberant-ctags
 export ANDROID_SDK=/opt/android-sdk
 ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources
+http://cscope.sourceforge.net/cscope_vim_tutorial.html
+http://stackoverflow.com/questions/934233/cscope-or-ctags-why-choose-one-over-the-other
+http://www.fsl.cs.sunysb.edu/~rick/cscope.html
+https://letstalkgyan.wordpress.com/2013/04/20/vim-ctags-and-cscope/
+http://www.slideshare.net/saikatfpal/cscope-and-ctags
+https://tuxdiary.com/2012/04/03/code-browsing-using-ctags-and-cscope/
+http://ctags.blogspot.ru/
+sudo apt-get install cscope
+find . -name '*.py' \
+-o -name '*.java' \
+-o -iname '*.[CH]' \
+-o -name '*.cpp' \
+-o -name '*.cc' \
+-o -name '*.hpp'  \
+> cscope.files
+# -b: just build
+# -q: create inverted index
+cscope -b -q
+nmap <C-@><C-@> :cs find s <C-R>=expand("<cword>")<CR><CR>
+use:
+:!tasks.sh cscope
 
 ./gradlew clean build
 
@@ -54,7 +76,7 @@ PATH=/opt/android-sdk/platform-tools:/opt/android-sdk/tools:$PATH adb uninstall 
 -----------------------------------------------------------------------------------------------------
 
 susccess android autocomplete2: https://github.com/artur-shaik/vim-javacomplete2/issues/177
-see info in pdf: /my_project/docs/issues/unable_to_fetch_classes_from_jar_file.pdf
+see info in pdf: /docs/devel/issues/unable_to_fetch_classes_from_jar_file.pdf
 
 https://github.com/artur-shaik/vim-javacomplete2#configuration
 https://github.com/artur-shaik/vim-javacomplete2#commands
@@ -68,9 +90,9 @@ https://github.com/artur-shaik/vim-javacomplete2/issues/177:
   the plugin will compare it with the time of the cache file.
 
 for additional info: https://github.com/artur-shaik/vim-javacomplete2/issues/225
-see info in pdf: /my_project/docs/issues/no_longer_completes_classes_on_android.pdf
+see info in pdf: /docs/devel/issues/no_longer_completes_classes_on_android.pdf
 and: https://github.com/artur-shaik/vim-javacomplete2/issues/60
-and pdf: /my_project/docs/issues/freeze_on_completion.pdf
+and pdf: /docs/devel/issues/freeze_on_completion.pdf
 
 https://github.com/hsanson/vim-android/blob/master/doc/vim-android.txt
 http://vim.wikia.com/wiki/Omni_completion
