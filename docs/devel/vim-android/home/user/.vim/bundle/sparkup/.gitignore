@@ -1,0 +1,21 @@
+## my:
+## https://github.com/rstacruz/sparkup.git
+
+.DS_Store
+.project
+doc
+distribution/
+.sourcescribe_index
+*.swp
+*.swo
+*.pyc
+cscope.out
+*~
+
+# symlinks created for pathogen
+/ftplugin
+/doc
+
+# Distribution files
+# */sparkup
+# */sparkup.py

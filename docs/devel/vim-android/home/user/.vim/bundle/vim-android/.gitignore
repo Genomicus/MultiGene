@@ -1,0 +1,5 @@
+## my:
+## https://github.com/hsanson/vim-android.git
+
+*.swp
+doc/tags

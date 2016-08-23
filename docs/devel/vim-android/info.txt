@@ -1,0 +1,10 @@
+GIT_SSL_NO_VERIFY=true git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+copy '.vimrc' to '~/.vimrc'
+
+GIT_SSL_NO_VERIFY=true vi ~/.vimrc
+run in vim |:PluginInstall
+
+~/.vimrc:
+Bundle 'hsanson/vim-android'
+
+and then inside vim run the |:BundleInstall - command.
