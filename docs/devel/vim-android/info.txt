@@ -12,11 +12,12 @@ Bundle 'hsanson/vim-android'
 and then inside vim run the |:BundleInstall - command.
 
 -----------------------------------------------------------------------------------------------------------------------------
+env.source:
+export JAVA_HOME=/opt/jdk1.8.0_65
+export JDK_HOME=/opt/jdk1.8.0_65
+export JRE_HOME=/opt/jdk1.8.0_65/jre
+export PATH=/opt/jdk1.8.0_65/bin:/opt/jdk1.8.0_65/jre/bin:$PATH
 
-JAVA_HOME=/opt/jdk1.8.0_65 \
-JDK_HOME=/opt/jdk1.8.0_65 \
-JRE_HOME=/opt/jdk1.8.0_65/jre \
-PATH=/opt/jdk1.8.0_65/bin:/opt/jdk1.8.0_65/jre/bin:$PATH \
 vim DbLite.java
 
 -----------------------------------------------------------------------------------------------------------------------------

@@ -57,10 +57,9 @@ public class MainActivity extends Activity
     }
 
     String getWiFiIPAddress() {
-        //WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE);
-        //String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
-	String ip = "0.0.0.0";
-	return ip;
+        WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE);
+        String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
+        return ip;
     }
 
     void handleSendText(Intent intent) {
