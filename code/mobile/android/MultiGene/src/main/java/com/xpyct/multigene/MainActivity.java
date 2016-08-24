@@ -49,10 +49,18 @@ public class MainActivity extends Activity
 	    Log.i(LOG_TAG, "["+LOG_TAG+"] onCreate begin");
 
 	    Context ctx = getApplicationContext();
-	    Toast toast = Toast.makeText(ctx, "onCreate: "+getVersionName("com.xpyct.multigene"), Toast.LENGTH_SHORT);
+	    Toast toast = Toast.makeText(ctx, "version: "+getVersionName("com.xpyct.multigene")+"\n"+
+			                      "wifi-ip: "+getWiFiIPAddress(), Toast.LENGTH_SHORT);
 	    toast.setGravity(Gravity.CENTER, 0, 0);
 	    toast.show();
 	}
+    }
+
+    String getWiFiIPAddress() {
+        //WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE);
+        //String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
+	String ip = "0.0.0.0";
+	return ip;
     }
 
     void handleSendText(Intent intent) {

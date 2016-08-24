@@ -4,7 +4,7 @@ filetype off                  " required
 
 let g:gradle_path               = '/opt/gradle/2.10'
 let g:android_sdk_path          = '/opt/android-sdk'
-let g:JavaComplete_LibsPath     = "/opt/android/platforms/android-22/android.jar"
+let g:JavaComplete_LibsPath     = '/opt/android-sdk/platforms/android-22/android.jar'
 "let g:JavaComplete_SourcesPath = ""
 "let g:JavaComplete_UsePython3  = 0
 " https://github.com/artur-shaik/vim-javacomplete2/issues/177
@@ -37,7 +37,7 @@ imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 "inoremap <C-@> <C-Space>
 inoremap <C-@> <c-x><c-o>
 " cscope
-nmap <C-@><C-@> :cs find s <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-@><C-@> :cs find s <C-R>=expand("<cword>")<CR><CR>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim

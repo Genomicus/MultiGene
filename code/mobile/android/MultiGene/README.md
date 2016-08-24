@@ -59,6 +59,16 @@ nmap <C-@><C-@> :cs find s <C-R>=expand("<cword>")<CR><CR>
 use:
 :!tasks.sh cscope
 
+vim --version
+
+!!!
+sudo apt install vim-nox
+  Vi IMproved - enhanced vi editor - with scripting languages support
+
+sudo apt search vim
+sudo apt install vim-syntax-go
+:!./tasks.sh devices
+
 ./gradlew clean build
 
 PATH=/opt/android-sdk/platform-tools:/opt/android-sdk/tools:$PATH adb
