@@ -1,3 +1,5 @@
+-----------------------------------------------------------------------------------------------------------------------------
+
 GIT_SSL_NO_VERIFY=true git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 copy '.vimrc' to '~/.vimrc'
 
@@ -8,3 +10,49 @@ run in vim |:PluginInstall
 Bundle 'hsanson/vim-android'
 
 and then inside vim run the |:BundleInstall - command.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+JAVA_HOME=/opt/jdk1.8.0_65 \
+JDK_HOME=/opt/jdk1.8.0_65 \
+JRE_HOME=/opt/jdk1.8.0_65/jre \
+PATH=/opt/jdk1.8.0_65/bin:/opt/jdk1.8.0_65/jre/bin:$PATH \
+vim DbLite.java
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+https://github.com/artur-shaik/vim-javacomplete2/issues/165
+https://github.com/artur-shaik/vim-javacomplete2/issues/242
+https://github.com/artur-shaik/vim-javacomplete2/issues/154
+https://github.com/artur-shaik/vim-javacomplete2/issues/3
+https://github.com/artur-shaik/vim-javacomplete2/blob/master/autoload/javacomplete/server.vim
+
+!!! https://github.com/artur-shaik/vim-javacomplete2/issues/220
+
+cd ~/.vim/bundle/vim-javacomplete2/libs/javavi/
+JAVA_HOME=/opt/jdk1.8.0_65 mvn compile
+
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building javavi 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ javavi ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/user/.vim/bundle/vim-javacomplete2/libs/javavi/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ javavi ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 54 source files to /home/user/.vim/bundle/vim-javacomplete2/libs/javavi/target/classes
+[WARNING] /home/user/.vim/bundle/vim-javacomplete2/libs/javavi/src/main/java/kg/ash/javavi/readers/source/ClassNamesFetcher.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/user/.vim/bundle/vim-javacomplete2/libs/javavi/src/main/java/kg/ash/javavi/readers/source/ClassNamesFetcher.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.235s
+[INFO] Finished at: Wed Aug 24 18:19:01 MSK 2016
+[INFO] Final Memory: 13M/211M
+[INFO] ------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------
