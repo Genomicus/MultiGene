@@ -1,9 +1,5 @@
 #!/bin/bash
 
-export JDK_HOME=/opt/jdk1.8.0_65
-export JAVA_HOME=/opt/jdk1.8.0_65/jre
-export ANDROID_SDK=/opt/android-sdk
-
 # alias ls='ls --color=auto'
 # alias ll='ls -l'
 
@@ -64,6 +60,10 @@ case $1 in
         #declare -x PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH
         #exec "$@"
         ;;
+    "env"  )
+        source env.source
+        $2 $3 $4 $5 $6 $7 $8
+        ;;
     *        )
         echo "use: $0 rebuild"
         echo "     $0 clean"
@@ -76,5 +76,6 @@ case $1 in
         echo "     $0 cscope"
         echo "     $0 getenv"
         echo "     $0 setenv"
+        echo "     $0 env <app> <app-args>"
         ;;
 esac

@@ -85,6 +85,10 @@ PATH=/opt/android-sdk/platform-tools:/opt/android-sdk/tools:$PATH adb uninstall 
 
 -----------------------------------------------------------------------------------------------------
 
+:JCserverCompile
+
+-----------------------------------------------------------------------------------------------------
+
 susccess android autocomplete2: https://github.com/artur-shaik/vim-javacomplete2/issues/177
 see info in pdf: /docs/devel/issues/unable_to_fetch_classes_from_jar_file.pdf
 

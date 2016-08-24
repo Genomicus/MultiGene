@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.TextView;
 import android.widget.Toast;
-
+ 
 import java.io.IOException;
 
 public class MainActivity extends Activity
